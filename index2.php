@@ -1,6 +1,5 @@
 <?php
 require_once("lib/functions.php");
-
 if(!empty($_POST))
     $success = saveAllDataToBase($_POST);
 
@@ -195,7 +194,7 @@ $countries = getAllCountries();
                                 echo $messageSuccess; 
                         ?>
                     </div>
-                    <form action="traitement.php" method="post">
+                    <form action="/index2.php" method="post">
                         <div class="row cf">               
                             <label>Title * :</label>
                             <div class="styled-select">
@@ -209,13 +208,11 @@ $countries = getAllCountries();
                         
                         <div class="row cf">
                             <label>First Name * :</label>
-                            <input id="f-name" type="text" name="fname"/>
                             <input id="f-name" type="text" name="fname" value="<?php if(isset($_POST['fname'])) { echo $_POST['fname']; } ?>" />
                         </div>
                         
                         <div class="row cf">                   
                             <label>Last Name * :</label>
-                            <input id="l-name" type="text" name="lname"/>
                             <input id="l-name" type="text" name="lname" value="<?php if(isset($_POST['lname'])) { echo $_POST['lname']; } ?>" />
                         </div>
                         
@@ -226,7 +223,11 @@ $countries = getAllCountries();
                                 <select name="month-birth">
                                     <?php 
                                     for($i = 1; $i <= 12; $i++) {
-                                        echo '<option value="'.$i.'">'.$i.'</option>';
+                                        if(isset($_POST['month-birth']) && $_POST['month-birth'] == $i)
+                                            $selected = "selected='selected'";
+                                        else 
+                                            $selected = "";
+                                        echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
                                     }
                                     ?>
                                 </select>
@@ -235,7 +236,11 @@ $countries = getAllCountries();
                                 <select name="day-birth">
                                     <?php 
                                     for($i = 1; $i <= 31; $i++) {
-                                        echo '<option value="'.$i.'">'.$i.'</option>';
+                                        if(isset($_POST['day-birth']) && $_POST['day-birth'] == $i)
+                                            $selected = "selected='selected'";
+                                        else 
+                                            $selected = "";
+                                        echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
                                     }
                                     ?>
                                 </select>
@@ -245,7 +250,11 @@ $countries = getAllCountries();
                                 <select  name="year-birth">
                                     <?php 
                                     for($i = 1950; $i <= 2014; $i++) {
-                                        echo '<option value="'.$i.'">'.$i.'</option>';
+                                        if(isset($_POST['year-birth']) && $_POST['year-birth'] == $i)
+                                            $selected = "selected='selected'";
+                                        else 
+                                            $selected = "";
+                                        echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
                                     }
                                     ?>
                                 </select>
@@ -264,7 +273,7 @@ $countries = getAllCountries();
                                                     $selected = "selected";
                                                 }
                                             
-                                                echo '<option value="'.$key.'" >'.$country->libelle.'</option>';
+                                                echo '<option value="'.$key.'" selected="selected" >'.$country->libelle.'</option>';
                                             }
                                         ?>
                                     </select>
@@ -273,19 +282,17 @@ $countries = getAllCountries();
                         
                         <div class="row cf">
                             <label>City * :</label>
-                            <input id="city" type="text" name="city"/>
                             <input id="city" type="text" name="city" value="<?php if(isset($_POST['city'])) { echo $_POST['city']; } ?>" />
                         </div>
                         
                         <div class="row cf">
                             <label>Email * :</label>
-                            <input id="email" type="text" name="mail"/>
                             <input id="email" type="text" name="mail" value="<?php if(isset($_POST['mail'])) { echo $_POST['mail']; } ?>" />
                         </div>
 
                         <div class="row cf optin">
                          
-                           <input id="news" type="checkbox" name="news" />
+                           <input id="news" type="checkbox" name="news" <?php if(isset($_POST['news']) && $_POST['news'] == 'on') { echo "checked='checked'"; } ?> />
                             <label for="news">
                                 Subscribe to Annick Goutal newsletter to know our latest events, new product
                                 launches and our prestige offers.
