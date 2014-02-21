@@ -2,7 +2,6 @@
 require_once("lib/functions.php");
 // /findCountry(); 
 $countries = getAllCountries();
-
     if (isset($_GET['success'])) {
         
         $success = $_GET['success'];
@@ -26,7 +25,6 @@ $countries = getAllCountries();
         else 
             $messageSuccess="";
     }
-    
 ?>
 
 <!doctype html>
