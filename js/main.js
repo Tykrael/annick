@@ -14,7 +14,6 @@ window.onload = function(){
 
 		})
 
-
 		$('.button').on('click',function(){
 			$('.invitationForm').show();
 		})
@@ -25,19 +24,24 @@ window.onload = function(){
 		$('.legalsLink').on('click',function(){
 			$('.legals').show();
 		})
+<<<<<<< HEAD
 		$('.rules').on('click',function(){
 			$('.contest').show();
 		})
 		$('.arrow-left').click(function(e){mySwiper.swipePrev()});
 		$('.arrow-right').click(function(e){mySwiper.swipeNext()});
+=======
+		
+		$('.arrow-left').on('click',function(e){mySwiper.swipePrev()});
+		$('.arrow-right').on('click',function(e){mySwiper.swipeNext()});
+>>>>>>> 2b0fa56acab8270785bbf818b06a331ed347afce
 }
 
 $(document).ready(function(){
 
-		$(".door-right").on('animationend webkitAnimationEnd', function(e){
+	$(".door-right").on('animationend webkitAnimationEnd', function(e){
+		$('.door').hide()
+		$('body').css('overflow','auto')
 
-			$('.door').hide()
-			$('body').css('overflow','auto')
-
-		});
+	});
 })
