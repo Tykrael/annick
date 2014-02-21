@@ -27,16 +27,22 @@ window.onload = function(){
 		$('.rules').on('click',function(){
 			$('.contest').show();
 		})
+
+		if($('.invitationForm').find('.errorMessage').length){
+			$('.invitationForm').show();
+		}
 		
 		$('.arrow-left').on('click',function(e){mySwiper.swipePrev()});
 		$('.arrow-right').on('click',function(e){mySwiper.swipeNext()});
 }
 
 $(document).ready(function(){
-
-	$(".door-right").on('animationend webkitAnimationEnd', function(e){
-		$('.door').hide()
-		$('body').css('overflow','auto')
-
-	});
+	if(!$('.invitationForm').find('.errorMessage').length){
+		$(".door-right").on('animationend webkitAnimationEnd', function(e){
+				$('.door').hide();
+				$('body').css('overflow','auto');
+		});
+	}else{
+		$('.door').remove();
+	}
 })

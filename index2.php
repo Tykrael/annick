@@ -173,10 +173,10 @@ $countries = getAllCountries();
         <div class="popin invitationForm open">
             <div class="mask"></div>
             <div class="popinWrapper">
-                <div class="<?php echo $flashMessageClass;?>">
+                <div class="<?php echo $flashMessageClass; ?>">
                     <?php 
                         if (isset($messageSuccess))
-                        echo $messageSuccess; 
+                            echo $messageSuccess; 
                     ?>
                 </div>
                 <div id="form">
@@ -256,11 +256,11 @@ $countries = getAllCountries();
                                             $selected = null;
                                             foreach ($countries as $key => $country) {
                                                 
-                                                if ($country['libelle'] == 1960) {
+                                                if ($country->libelle == 1960) {
                                                     $selected = "selected";
                                                 }
                                             
-                                                echo '<option value="'.$key.'" >"'.$country->libelle.'</option>';
+                                                echo '<option value="'.$key.'" >'.$country->libelle.'</option>';
                                             }
                                         ?>
                                     </select>
