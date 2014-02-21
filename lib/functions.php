@@ -116,7 +116,7 @@ function getAllCountries() {
 	}catch(PDOException $e){
 		echo "Connexion Impossible à la BDD";
 	}
-	$response = $bdd ->query("SELECT * FROM country");
+	$response = $bdd ->query("SELECT * FROM country ORDER BY libelle ASC;");
 	
 	$donnees = $response->fetchAll();
 
