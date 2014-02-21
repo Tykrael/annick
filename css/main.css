@@ -656,6 +656,7 @@ section h2 {
     border: 1px solid #d3bf82;
     opacity: 1;
     z-index: 9999;
+    top:10%;
 }
 
 .popin .popinHeader h2,.popin h2 {
