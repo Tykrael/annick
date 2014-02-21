@@ -269,7 +269,7 @@ $countries = getAllCountries();
                                             $selected = null;
                                             foreach ($countries as $key => $country) {
                                                 
-                                                if ($country->libelle == 1960) {
+                                                if ($country->index == "US") {
                                                     $selected = "selected";
                                                 }
                                             
