@@ -1,10 +1,13 @@
 <?php
 require_once("lib/functions.php");
+
+if(!empty($_POST))
+    $success = saveAllDataToBase($_POST);
+
 // /findCountry(); 
 $countries = getAllCountries();
-    if (isset($_GET['success'])) {
-        
-        $success = $_GET['success'];
+
+    if (isset($success)) {
     
         if ($success == 1) {
             $messageSuccess = "Thank you. Your subscription has been registered";
