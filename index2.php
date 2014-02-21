@@ -172,12 +172,6 @@ $countries = getAllCountries();
         <div class="popin invitationForm open">
             <div class="mask"></div>
             <div class="popinWrapper">
-                <div class="<?php echo $flashMessageClass; ?>">
-                    <?php 
-                        if (isset($messageSuccess))
-                            echo $messageSuccess; 
-                    ?>
-                </div>
                 <div id="form">
                     <div class="popinHeader">
                         <h2>
@@ -191,6 +185,12 @@ $countries = getAllCountries();
                             Sign up and have a chance to win your personal invitation 
                             to the opening reception.
                         </p>
+                    </div>
+                    <div class="<?php echo $flashMessageClass; ?>">
+                        <?php 
+                            if (isset($messageSuccess))
+                                echo $messageSuccess; 
+                        ?>
                     </div>
                     <form action="traitement.php" method="post">
                         <div class="row cf">               
