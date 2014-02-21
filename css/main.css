@@ -710,10 +710,11 @@ section h2 {
 }
 
 /*SELECT*/
+
 .styled-select select {
    background: transparent;
    width: 240px;
-   font-size: 16px;
+   font-size: 14px;
    line-height: 1;
    border: 0;
    border-radius: 0;
@@ -749,7 +750,7 @@ section h2 {
         width:91px;
 }
 
-
+/*checkbox*/
 
 .popin select.small2 {
     width: 69px;
