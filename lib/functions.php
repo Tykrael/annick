@@ -76,8 +76,8 @@ function saveAllDataToBase($post) {
 	$reponse->bindValue(':date_birth', $date ,PDO::PARAM_STR);
 	$reponse->bindValue(':city', $post['city'] ,PDO::PARAM_STR);
 	$reponse->bindValue(':email', $post['mail'] ,PDO::PARAM_STR);
-	//$reponse->bindValue(':fk_country', $idCo, PDO::PARAM_INT);
-	$reponse->bindValue(':fk_country', 2); // la!
+	$reponse->bindValue(':fk_country', $idCo, PDO::PARAM_INT);
+	//$reponse->bindValue(':fk_country', 2); // la!
 	$reponse->bindValue(':letter', $news);
 	
 	$reponse->execute() or die(print_r($reponse->errorInfo(), TRUE));

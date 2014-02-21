@@ -269,11 +269,11 @@ $countries = getAllCountries();
                                             $selected = null;
                                             foreach ($countries as $key => $country) {
                                                 
-                                                if ($country->index == "US") {
-                                                    $selected = "selected='selected'";
+                                                if ($key == 64) {
+                                                    $selected = 'selected="selected"';
                                                 }
                                             
-                                                echo '<option value="'.$key.'" '.$selected.' >'.$country->libelle.'</option>';
+                                                echo '<option value="'.$key.'" '.$selected.'>'.$country->libelle.'</option>';
                                             }
                                         ?>
                                     </select>
