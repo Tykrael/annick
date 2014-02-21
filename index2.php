@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Annick Goutal</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
    
         <!-- build:css(.tmp) css/main.css -->
         <link rel="stylesheet" href="css/reset.css">
@@ -165,12 +165,14 @@
                     <form action="traitement.php" method="post">
                         <div class="row cf">               
                             <label>Title * :</label>
-                            <select name="title">
-                                    <option value="Mr">Mr</option>"
-                                    <option value="Mrs">Mrs</option>"
-                                    <option value="Ms">Ms</option>"
-                            </select>
-                        </div>
+                            <div class="styled-select">
+                                <select name="title">
+                                        <option value="Mr">Mr</option>"
+                                        <option value="Mrs">Mrs</option>"
+                                        <option value="Ms">Ms</option>"
+                                </select>
+                            </div>                        
+                            </div>
                         
                         <div class="row cf">
                             <label>First Name * :</label>
@@ -184,43 +186,54 @@
                         
                         <div class="row cf">                   
                             <label>Date of birth * :</label>
-                                <select class="small2" name="month-birth">
+                            
+                            <div class="styled-select small2 fleft">
+                                <select name="month-birth">
                                     <?php 
-                                        for($i = 1; $i <= 12; $i++) {
-                                            echo '<option value="'.$i.'">'.$i.'</option>';
-                                        }
+                                    for($i = 1; $i <= 12; $i++) {
+                                        echo '<option value="'.$i.'">'.$i.'</option>';
+                                    }
                                     ?>
                                 </select>
-                                <select class="small2" name="day-birth">
+                            </div>
+                            <div class="styled-select small2 fleft">
+                                <select name="day-birth">
                                     <?php 
-                                        for($i = 1; $i <= 31; $i++) {
-                                            echo '<option value="'.$i.'">'.$i.'</option>';
-                                        }
+                                    for($i = 1; $i <= 31; $i++) {
+                                        echo '<option value="'.$i.'">'.$i.'</option>';
+                                    }
                                     ?>
                                 </select>
-                                <select class="small4" name="year-birth">
+
+                            </div>
+                            <div class="styled-select small4 fleft">
+                                <select  name="year-birth">
                                     <?php 
-                                        for($i = 1950; $i <= 2014; $i++) {
-                                            echo '<option value="'.$i.'">'.$i.'</option>';
-                                        }
+                                    for($i = 1950; $i <= 2014; $i++) {
+                                        echo '<option value="'.$i.'">'.$i.'</option>';
+                                    }
                                     ?>
                                 </select>
+                            </div>
                         </div>
+                    
                         <div class="row cf">   
                                 <label id="country">Country * :</label>   
-                                <select name="country">
-                                    <?php 
-                                        $selected = null;
-                                        foreach ($countries as $key => $country) {
+                                <div class="styled-select">
+                                    <select name="country">
+                                        <?php 
+                                            $selected = null;
+                                            foreach ($countries as $key => $country) {
+                                                
+                                                if ($country['libelle'] == 1960) {
+                                                    $selected = "selected";
+                                                }
                                             
-                                            if ($country['libelle'] == 1960) {
-                                                $selected = "selected";
+                                                echo '<option value="'.$country['id_country'].'" selected="'.$selected.'">"'.$country['libelle'].'</option>';
                                             }
-                                        
-                                            echo '<option value="'.$country['id_country'].'" selected="'.$selected.'">"'.$country['libelle'].'</option>';
-                                        }
-                                    ?>
-                                </select>
+                                        ?>
+                                    </select>
+                                 </div>
                         </div>
                         
                         <div class="row cf">

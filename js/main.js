@@ -14,7 +14,6 @@ window.onload = function(){
 
 		})
 
-
 		$('.button').on('click',function(){
 			$('.invitationForm').show();
 		})
@@ -26,16 +25,15 @@ window.onload = function(){
 			$('.legals').show();
 		})
 		
-		$('.arrow-left').click(function(e){mySwiper.swipePrev()});
-		$('.arrow-right').click(function(e){mySwiper.swipeNext()});
+		$('.arrow-left').on('click',function(e){mySwiper.swipePrev()});
+		$('.arrow-right').on('click',function(e){mySwiper.swipeNext()});
 }
 
 $(document).ready(function(){
 
-		$(".door-right").on('animationend webkitAnimationEnd', function(e){
+	$(".door-right").on('animationend webkitAnimationEnd', function(e){
+		$('.door').hide()
+		$('body').css('overflow','auto')
 
-			$('.door').hide()
-			$('body').css('overflow','auto')
-
-		});
+	});
 })
