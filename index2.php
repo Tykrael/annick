@@ -249,7 +249,7 @@ $countries = getAllCountries();
                             <div class="styled-select small4 fleft">
                                 <select  name="year-birth">
                                     <?php 
-                                    for($i = 1950; $i <= 2014; $i++) {
+                                    for($i = 1900; $i <= 2014; $i++) {
                                         if(isset($_POST['year-birth']) && $_POST['year-birth'] == $i)
                                             $selected = "selected='selected'";
                                         else 
@@ -270,10 +270,10 @@ $countries = getAllCountries();
                                             foreach ($countries as $key => $country) {
                                                 
                                                 if ($country->index == "US") {
-                                                    $selected = "selected";
+                                                    $selected = "selected='selected'";
                                                 }
                                             
-                                                echo '<option value="'.$key.'" selected="selected" >'.$country->libelle.'</option>';
+                                                echo '<option value="'.$key.'" '.$selected.' >'.$country->libelle.'</option>';
                                             }
                                         ?>
                                     </select>
