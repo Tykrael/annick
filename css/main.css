@@ -842,6 +842,12 @@ section h2 {
     height: 31px;
 }
 
+.errorMessage{
+    background-color:#d73535;
+    border:1px solid #a7121a;
+}
+
+
 @media only screen and (max-width : 1000px) {
     .pagination {
         position: absolute;
