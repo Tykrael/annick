@@ -843,10 +843,12 @@ section h2 {
 }
 
 .errorMessage{
-    background-color:#d73535;
-    border:1px solid #a7121a;
+    width:100%;
+    color:#d73535;
+    text-align:center;
+    padding:10px 0 0;
 }
-
+.success{display:none;}
 
 @media only screen and (max-width : 1000px) {
     .pagination {

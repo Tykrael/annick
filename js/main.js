@@ -37,7 +37,7 @@ window.onload = function(){
 }
 
 $(document).ready(function(){
-	if(!$('.invitationForm').find('.errorMessage').length){
+	if(!$('.invitationForm').find('.errorMessage').length ){
 		$(".door-right").on('animationend webkitAnimationEnd', function(e){
 				$('.door').hide();
 				$('body').css('overflow','auto');

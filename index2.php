@@ -13,15 +13,15 @@ $countries = getAllCountries();
             $flashMessageClass = "flashMessage";
         }
         elseif ($success == 2) {
-            $messageSuccess = "Field form are limited at 38 characters";
+            $messageSuccess = "Field(s) limited to 38 characters";
             $flashMessageClass = "errorMessage";
         }
         elseif ($success == 3) {
-            $messageSuccess = "Invalid mail format";
+            $messageSuccess = "Invalid e-mail format";
             $flashMessageClass = "errorMessage";
         }
         elseif ($success == 4) {
-            $messageSuccess = "Fields do not have to be empty";
+            $messageSuccess = "All fields are mandatory";
             $flashMessageClass = "errorMessage";
         }            
         else 
@@ -268,12 +268,14 @@ $countries = getAllCountries();
                                         <?php 
                                             $selected = null;
                                             foreach ($countries as $key => $country) {
-                                                
-                                                if ($key == 64) {
+                                                if(isset($_POST['country']) && $_POST['country'] == $key)
+                                                    $selected = "selected='selected'";
+                                                else if ($key == 223) 
                                                     $selected = 'selected="selected"';
-                                                }
+                                                else
+                                                    $selected = "";
                                             
-                                                echo '<option value="'.$key.'" '.$selected.'>'.$country->libelle.'</option>';
+                                                echo '<option value="'.$country->id_country.'" '.$selected.'>'.$country->libelle.'</option>';
                                             }
                                         ?>
                                     </select>
@@ -510,6 +512,12 @@ $countries = getAllCountries();
             </div>
         </div>
 
+        <div class="<?php echo $flashMessageClass; ?> success">
+            <?php 
+                if (isset($messageSuccess))
+                    echo $messageSuccess; 
+            ?>
+        </div>
 
 
         <div class="door">
