@@ -1240,10 +1240,10 @@ input[type="checkbox"]:disabled:checked + label:after {
         font-size: 14px;
         border-radius: 0;
     }
-    
+
     .arrow-right,
     .arrow-left{
-        top:20%;
+        display:none;
     }
 }
 @media only screen and (max-width : 640px) {
