@@ -848,7 +848,7 @@ section h2 {
     text-align:center;
     padding:10px 0 0;
 }
-.success{display:none;}
+.flashMessage{display:none;}
 
 @media only screen and (max-width : 1000px) {
     .pagination {

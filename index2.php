@@ -267,10 +267,12 @@ $countries = getAllCountries();
                                     <select name="country">
                                         <?php 
                                             $selected = null;
+                                            $s = 0;
                                             foreach ($countries as $key => $country) {
-                                                if(isset($_POST['country']) && $_POST['country'] == $key)
+                                                if(isset($_POST['country']) && $_POST['country'] == $country->id_country){
                                                     $selected = "selected='selected'";
-                                                else if ($key == 223) 
+                                                    $s++;
+                                                }else if ($key == 223 && $s == 0) 
                                                     $selected = 'selected="selected"';
                                                 else
                                                     $selected = "";
@@ -512,18 +514,23 @@ $countries = getAllCountries();
             </div>
         </div>
 
-        <div class="<?php echo $flashMessageClass; ?> success">
-            <?php 
-                if (isset($messageSuccess))
-                    echo $messageSuccess; 
-            ?>
+        <div class="<?php echo $flashMessageClass; ?> popin">
+            <div class="mask"></div>
+            <div class="popinWrapper">
+                <div class="content">
+                    <?php 
+                        if (isset($messageSuccess))
+                            echo $messageSuccess; 
+                    ?>
+                </div>
+                <div class="closePopin">Close</div>
+            </div>
         </div>
 
 
         <div class="door">
             <div class="door-left"></div>
-             <div class="door-right"></div>
-
+            <div class="door-right"></div>
         </div>
         <script src="js/jquery-1.11.0.min.js"></script>
      

@@ -37,12 +37,25 @@ window.onload = function(){
 }
 
 $(document).ready(function(){
-	if(!$('.invitationForm').find('.errorMessage').length ){
+	console.log('flashMessage',$('.flashMessage').length)
+	if(!$('.invitationForm').find('.errorMessage').length && !$('.flashMessage').length ){
 		$(".door-right").on('animationend webkitAnimationEnd', function(e){
 				$('.door').hide();
 				$('body').css('overflow','auto');
 		});
 	}else{
 		$('.door').remove();
+		$('body').css('overflow','auto');
 	}
+	if($('.flashMessage.popin').length){
+		$('.flashMessage.popin').show()
+		setTimeout(function(){
+			$('.flashMessage.popin').remove();
+		},3000);
+	}
+	
+
+
+
+
 })
