@@ -1,3 +1,4 @@
+
 <?php
 require_once("lib/functions.php");
 // /findCountry(); 
@@ -26,7 +27,6 @@ $countries = getAllCountries();
             $messageSuccess="";
     }
 ?>
-
 <!doctype html>
 <!--[if IE 7]>         <html class="no-js ie7 lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js ie8 lt-ie10 lt-ie9 "> <![endif]-->
@@ -277,7 +277,7 @@ $countries = getAllCountries();
                         </div>
 
                         <div class="row cf optin">
-                            <span class="alignR"><input id="news" type="checkbox" name="news"/></span>
+                            <input id="news" type="checkbox" name="news"/>
                             <label for="news">
                                 Subscribe to Annick Goutal newsletter to know our latest events, new product
                                 launches and our prestige offers.
