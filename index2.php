@@ -2,7 +2,6 @@
 require_once("lib/functions.php");
 // /findCountry(); 
 $countries = getAllCountries();
-
     if (isset($_GET['success'])) {
         
         $success = $_GET['success'];
@@ -26,7 +25,6 @@ $countries = getAllCountries();
         else 
             $messageSuccess="";
     }
-    
 ?>
 
 <!doctype html>
@@ -174,10 +172,10 @@ $countries = getAllCountries();
         <div class="popin invitationForm open">
             <div class="mask"></div>
             <div class="popinWrapper">
-                <div class="<?php echo $flashMessageClass;?>">
+                <div class="<?php echo $flashMessageClass; ?>">
                     <?php 
                         if (isset($messageSuccess))
-                        echo $messageSuccess; 
+                            echo $messageSuccess; 
                     ?>
                 </div>
                 <div id="form">
@@ -250,22 +248,22 @@ $countries = getAllCountries();
                         </div>
                     
                         <div class="row cf">   
-                            <label id="country">Country * :</label>   
-                            <div class="styled-select">
-                                <select name="country">
-                                    <?php 
-                                        $selected = null;
-                                        foreach ($countries as $key => $country) {
+                                <label id="country">Country * :</label>   
+                                <div class="styled-select">
+                                    <select name="country">
+                                        <?php 
+                                            $selected = null;
+                                            foreach ($countries as $key => $country) {
+                                                
+                                                if ($country->libelle == 1960) {
+                                                    $selected = "selected";
+                                                }
                                             
-                                            if ($country['libelle'] == 1960) {
-                                                $selected = "selected";
+                                                echo '<option value="'.$key.'" >'.$country->libelle.'</option>';
                                             }
-                                        
-                                            echo '<option value="'.$key.'" >"'.$country->libelle.'</option>';
-                                        }
-                                    ?>
-                                </select>
-                             </div>
+                                        ?>
+                                    </select>
+                                 </div>
                         </div>
                         
                         <div class="row cf">
