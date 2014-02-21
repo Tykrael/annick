@@ -25,7 +25,9 @@ window.onload = function(){
 		$('.legalsLink').on('click',function(){
 			$('.legals').show();
 		})
-		
+		$('.rules').on('click',function(){
+			$('.contest').show();
+		})
 		$('.arrow-left').click(function(e){mySwiper.swipePrev()});
 		$('.arrow-right').click(function(e){mySwiper.swipeNext()});
 }
