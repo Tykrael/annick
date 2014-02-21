@@ -25,7 +25,7 @@
             <div class="wrapper">
                 <h1>Annick Goutal Paris</h1>
                 <h2>
-                    New opening in <span class="bold">New-York</span><br />
+                    New opening in <span class="bold">New-York</span>
                 
                 </h2>
                 <a href="http://www.annickgoutal.com/" class="institutional" target="_blank">Visit Annick Goutal website &gt;</a>
@@ -39,14 +39,14 @@
                             <figure>
                                   <img src="./img/slide2.jpg" alt="Slide 1" />
                                 <figcaption>
-                                    <div class="title">THE Annick goutal house</div>
+                                    <div class="title">ANNICK GOUTAL ‘S<br />FIRST NEW YORK STORE</div>
                                     <div class="text">
                                         <p>
-                                            A perfumery house synonymous with Expertise, 
-                                            Emotion, Excellence and French Art de Vivre.<br />
-                                            The Annick Goutal house has been recognized 
-                                            for its original and timeless creations, 
-                                            and their unique olfactory signature.
+                                            The Annick Goutal perfumery house will 
+                                            open the doors of its first New York store, in the heart 
+                                            of Greenwich Village.<br /><br />
+                                            An exceptional olfactive experience in a modern, 
+                                            feminine setting…
                                         </p>
                                         <a href="#" class="button">Get your invitation</a>
                                     </div>
@@ -57,14 +57,14 @@
                             <figure>
                                 <img src="./img/slide1.jpg" alt="Slide 1" />
                                 <figcaption>
-                                    <div class="title">ANNICK GOUTAL ‘S<br />FIRST NEW YORK STORE</div>
+                                    <div class="title">THE Annick goutal house</div>
                                     <div class="text">
                                         <p>
-                                            On March 15th, the Annick Goutal perfumery house will 
-                                            open the doors of its first New York store, in the heart 
-                                            of Greenwich Village.<br /><br />
-                                            An exceptional olfactive experience in a modern, 
-                                            feminine setting…
+                                            A perfumery house synonymous with Expertise, 
+                                            Emotion, Excellence and French Art de Vivre.<br />
+                                            The Annick Goutal house has been recognized 
+                                            for its original and timeless creations, 
+                                            and their unique olfactory signature.
                                         </p>
                                         <a href="#" class="button">Get your invitation</a>
                                     </div>
@@ -114,7 +114,9 @@
                         </p>
                         <div class="addthis">
                             <!-- AddThis Button BEGIN -->
-                            <div class="addthis_toolbox">
+                            <div class="addthis_toolbox" addthis:url="http://example.com"
+        addthis:title="ANNICK GOUTAL NEW OPENING IN NEW-YORK"
+        addthis:description="An Example Description">
                                 <a class="addthis_button_facebook">
                                     <img src="img/share-facebook.png" alt="share facebook" />
                                 </a>
