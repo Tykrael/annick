@@ -1,4 +1,3 @@
-
 <?php
 require_once("lib/functions.php");
 // /findCountry(); 
@@ -27,6 +26,7 @@ $countries = getAllCountries();
             $messageSuccess="";
     }
 ?>
+
 <!doctype html>
 <!--[if IE 7]>         <html class="no-js ie7 lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js ie8 lt-ie10 lt-ie9 "> <![endif]-->
@@ -207,11 +207,13 @@ $countries = getAllCountries();
                         <div class="row cf">
                             <label>First Name * :</label>
                             <input id="f-name" type="text" name="fname"/>
+                            <input id="f-name" type="text" name="fname" value="<?php echo $_POST['fname']; ?>" />
                         </div>
                         
                         <div class="row cf">                   
                             <label>Last Name * :</label>
                             <input id="l-name" type="text" name="lname"/>
+                            <input id="l-name" type="text" name="lname" value="<?php echo $_POST['lname']; ?>" />
                         </div>
                         
                         <div class="row cf">                   
@@ -269,15 +271,18 @@ $countries = getAllCountries();
                         <div class="row cf">
                             <label>City * :</label>
                             <input id="city" type="text" name="city"/>
+                            <input id="city" type="text" name="city" value="<?php echo $_POST['city']; ?>" />
                         </div>
                         
                         <div class="row cf">
                             <label>Email * :</label>
                             <input id="email" type="text" name="mail"/>
+                            <input id="email" type="text" name="mail" value="<?php echo $_POST['mail']; ?>" />
                         </div>
 
                         <div class="row cf optin">
-                            <input id="news" type="checkbox" name="news"/>
+                         
+                           <input id="news" type="checkbox" name="news" />
                             <label for="news">
                                 Subscribe to Annick Goutal newsletter to know our latest events, new product
                                 launches and our prestige offers.

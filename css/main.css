@@ -460,7 +460,10 @@ section.slider .wrapper {
     -webkit-transform: scale(0);
     -o-transform: scale(0);
 }
-
+.errorMessage{
+    background-color:#d73535;
+    border:1px solid #a7121a;
+}
 footer {
     background-color: #f9f9fa;
     height: 53px;
@@ -922,6 +925,12 @@ input[type="checkbox"]:disabled:checked + label:after {
     width: 31px;
     height: 31px;
 }
+
+.errorMessage{
+    background-color:#d73535;
+    border:1px solid #a7121a;
+}
+
 
 @media only screen and (max-width : 1000px) {
     .pagination {
