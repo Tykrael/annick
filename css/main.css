@@ -626,7 +626,7 @@ section h2 {
     margin: 20px 0 0 35px;
 }
 
-<<<<<<< HEAD
+
 .popin {
     display: none;
     background-color: rgba(224, 224, 224, 0.7);
@@ -674,7 +674,7 @@ section h2 {
     padding-bottom: 10px;
 }
 
-.legals p {
+.legals p,.contest p{
     padding-bottom: 15px;
 }
 
