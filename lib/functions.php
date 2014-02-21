@@ -37,15 +37,15 @@ function saveAllDataToBase($post) {
 		//var_dump($fieldsIsEmpty);die;
 		
 		if ($fieldsIsEmpty == TRUE) {
-			header("Location: http://www.annickgoutal.us/index2.php?success=4");die;
+			return 4;//header("Location: http://www.annickgoutal.us/index2.php?success=4");die;
 		}
 		
 		if ($nbCharOk == FALSE) {
 			
-			header("Location: http://www.annickgoutal.us/index2.php?success=2");die;
+			return 2;//header("Location: http://www.annickgoutal.us/index2.php?success=2");die;
 		}
 		else if (checkMailFormat($post['mail']) == FALSE) {
-			header("Location: http://www.annickgoutal.us/index2.php?success=3");die;
+			return 3;//header("Location: http://www.annickgoutal.us/index2.php?success=3");die;
 		}
 	}
 	
@@ -81,37 +81,13 @@ function saveAllDataToBase($post) {
 	$reponse->bindValue(':letter', $news);
 	
 	$reponse->execute() or die(print_r($reponse->errorInfo(), TRUE));
-
-	//$reponse->bindValue(':letter', $news ,PDO::PARAM_STR);
-	
-	/*$reponse->bindValue(':title', $post['title']);
-	$reponse->bindValue(':fname', $post['fname']);
-	$reponse->bindValue(':lname', $post['lname']);
-	$reponse->bindValue(':date_birth', $date);
-	$reponse->bindValue(':city', $post['city']);
-	$reponse->bindValue(':email', $post['mail']);
-	$reponse->bindValue(':fk_country', $co);
-	$reponse->bindValue(':letter', $news);*/
-	
-	
-	/*
-	
-	$reponse = $bdd->prepare('INSERT INTO client (titre,first_name,last_name,date_birth, city, email,fk_country, letter)
-								VALUES(:title,:fname,:lname,:date_birth,:city,:email,:fk_country, :letter)');
-	
-		   
-	$reponse -> execute(array(
-		'title'=>$post['title'],
-		'fname'=>$post['fname'],
-		'lname'=>$post['lname'],
-		'date_birth'=>$date,
-		'city' => $post['city'],
-		'email'=>$post['mail'],
-	    'fk_country' => $post['country'],
-	    'letter' => $news ));
-    */
     
-    header("Location: http://www.annickgoutal.us/index2.php?success=1");die;
+	return 1;
+
+	//return $post;
+
+
+    //header("Location: http://www.annickgoutal.us/index2.php?success=1");die;
 	
 }
 
