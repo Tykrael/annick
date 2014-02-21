@@ -210,13 +210,13 @@ $countries = getAllCountries();
                         <div class="row cf">
                             <label>First Name * :</label>
                             <input id="f-name" type="text" name="fname"/>
-                            <input id="f-name" type="text" name="fname" value="<?php echo $_POST['fname']; ?>" />
+                            <input id="f-name" type="text" name="fname" value="<?php if(isset($_POST['fname'])) { echo $_POST['fname']; } ?>" />
                         </div>
                         
                         <div class="row cf">                   
                             <label>Last Name * :</label>
                             <input id="l-name" type="text" name="lname"/>
-                            <input id="l-name" type="text" name="lname" value="<?php echo $_POST['lname']; ?>" />
+                            <input id="l-name" type="text" name="lname" value="<?php if(isset($_POST['lname'])) { echo $_POST['lname']; } ?>" />
                         </div>
                         
                         <div class="row cf">                   
@@ -274,13 +274,13 @@ $countries = getAllCountries();
                         <div class="row cf">
                             <label>City * :</label>
                             <input id="city" type="text" name="city"/>
-                            <input id="city" type="text" name="city" value="<?php echo $_POST['city']; ?>" />
+                            <input id="city" type="text" name="city" value="<?php if(isset($_POST['city'])) { echo $_POST['city']; } ?>" />
                         </div>
                         
                         <div class="row cf">
                             <label>Email * :</label>
                             <input id="email" type="text" name="mail"/>
-                            <input id="email" type="text" name="mail" value="<?php echo $_POST['mail']; ?>" />
+                            <input id="email" type="text" name="mail" value="<?php if(isset($_POST['mail'])) { echo $_POST['mail']; } ?>" />
                         </div>
 
                         <div class="row cf optin">
