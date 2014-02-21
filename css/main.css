@@ -933,6 +933,8 @@ input[type="checkbox"]:disabled:checked + label:after {
 
 
 @media only screen and (max-width : 1000px) {
+
+
     .pagination {
         position: absolute;
         left: 0;
@@ -1238,7 +1240,15 @@ input[type="checkbox"]:disabled:checked + label:after {
         font-size: 14px;
         border-radius: 0;
     }
+    
+    .arrow-right,
+    .arrow-left{
+        top:20%;
+    }
 }
+@media only screen and (max-width : 640px) {
+    .door{
+        display: none
+    }
 
-@media only screen and (max-width : 768px) {
 }
