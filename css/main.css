@@ -512,7 +512,7 @@ z-index:200;
 .popin form{padding:15px 0 0 135px;}
 .popin form .row{padding-bottom:10px;}
 .popin form label{float:left;width:120px;display:inline-block;}
-.popin form input{float:left;background-color:#f5f5f5;width:230px;height:30px;border-radius:14px;}
+.popin form input{float:left;background-color:#f5f5f5;width:230px;height:30px;border-radius:14px;padding:6px 5px 6px 10px;font-size:16px;}
 .popin form select{float:left;background:#f5f5f5 url(../img/select-button.png) no-repeat 215px center;
     width:230px;border-radius:14px;border:0;padding:6px 5px 6px 10px;font-size:16px;
     -webkit-appearance: none;}
