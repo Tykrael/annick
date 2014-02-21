@@ -1,33 +1,3 @@
-<?php
-require_once("lib/functions.php");
-// /findCountry(); 
-$countries = getAllCountries();
-
-    if (isset($_GET['success'])) {
-        
-        $success = $_GET['success'];
-    
-        if ($success == 1) {
-            $messageSuccess = "Thank you. Your subscription has been registered";
-            $flashMessageClass = "flashMessage";
-        }
-        elseif ($success == 2) {
-            $messageSuccess = "Field form are limited at 38 characters";
-            $flashMessageClass = "errorMessage";
-        }
-        elseif ($success == 3) {
-            $messageSuccess = "Invalid mail format";
-            $flashMessageClass = "errorMessage";
-        }
-        elseif ($success == 4) {
-            $messageSuccess = "Fields do not have to be empty";
-            $flashMessageClass = "errorMessage";
-        }            
-        else 
-            $messageSuccess="";
-    }
-    
-?>
 
 <!doctype html>
 <!--[if IE 7]>         <html class="no-js ie7 lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
@@ -250,22 +220,22 @@ $countries = getAllCountries();
                         </div>
                     
                         <div class="row cf">   
-                                <label id="country">Country * :</label>   
-                                <div class="styled-select">
-                                    <select name="country">
-                                        <?php 
-                                            $selected = null;
-                                            foreach ($countries as $key => $country) {
-                                                
-                                                if ($country['libelle'] == 1960) {
-                                                    $selected = "selected";
-                                                }
+                            <label id="country">Country * :</label>   
+                            <div class="styled-select">
+                                <select name="country">
+                                    <?php 
+                                        $selected = null;
+                                        foreach ($countries as $key => $country) {
                                             
-                                                echo '<option value="'.$key.'" >"'.$country->libelle.'</option>';
+                                            if ($country['libelle'] == 1960) {
+                                                $selected = "selected";
                                             }
-                                        ?>
-                                    </select>
-                                 </div>
+                                        
+                                            echo '<option value="'.$key.'" >"'.$country->libelle.'</option>';
+                                        }
+                                    ?>
+                                </select>
+                             </div>
                         </div>
                         
                         <div class="row cf">
