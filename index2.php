@@ -59,8 +59,8 @@ $countries = getAllCountries();
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Annick Goutal</title>
         <meta name="description" content="description">
-        <meta property="og:title" content="ANNICK GOUTAL - NEW YORK title" />
-        <meta property="og:description" content="ANNICK GOUTAL - NEW YORK description"  />
+        <meta property="og:title" content="ANNICK GOUTAL - NEW YORK" />
+        <meta property="og:description" content="The Annick Goutal perfumery house will open the doors of its first New York store, in the heart of Greenwich Village."  />
 
         
         <!-- build:css(.tmp) css/main.css -->

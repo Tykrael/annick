@@ -218,13 +218,12 @@ html[xmlns] .cf {
     height: 100%;
     z-index: 99;
     background-color: rgba(0,0,0,0.5);
-    -webkit-animation: shadow 2s both ease 2.5s;
-    -moz-animation: shadow 2s both ease 2.5s;
-    animation: shadow 2s both ease 2.5s;
+    -webkit-animation: shadow 2s  ease 2s;
+    -moz-animation: shadow 2s  ease 2s;
+    animation: shadow 2s  ease 2s;
 }
 
 @-webkit-keyframes shadow {
-    
     100% {
         background-color: rgba(0,0,0,0);
     }
@@ -261,9 +260,9 @@ html[xmlns] .cf {
     -webkit-transform-origin: 0% 0%;
     -moz-transform-origin: 0% 0%;
     transform-origin: 0% 0%;
-    -webkit-animation: rotatePushLeft 1.5s both ease-in 2s;
-    -moz-animation: rotatePushLeft 1.5s both ease-in 2s;
-    animation: rotatePushLeft 1.5s both ease-in 2s;
+    -webkit-animation: rotatePushLeft 2s  ease-in 2s;
+    -moz-animation: rotatePushLeft 2s  ease-in 2s;
+    animation: rotatePushLeft 2s  ease-in 2s;
 }
 
 @-webkit-keyframes rotatePushLeft {
@@ -311,9 +310,9 @@ html[xmlns] .cf {
     -webkit-transform-origin: 100% 0%;
     -moz-transform-origin: 100% 0%;
     transform-origin: 100% 0%;
-    -webkit-animation: rotatePushRight 1.5s both ease-in 2.3s;
-    -moz-animation: rotatePushRight 1.5s both ease-in 2.3s;
-    animation: rotatePushRight 1.5s both ease-in 2.3s;
+    -webkit-animation: rotatePushRight 2s both ease-in 2s;
+    -moz-animation: rotatePushRight 2s both ease-in 2s;
+    animation: rotatePushRight 2s both ease-in 2s;
 }
 
 @-webkit-keyframes rotatePushRight {
@@ -358,7 +357,7 @@ html {
 }
 
 body {
-    font-family: 'Goudy Old Style', 'times new roman', serif;
+    font-family: 'Goudy Old Style', 'Times New Roman', serif;
     font-style:normal;
     overflow: hidden;
 }
@@ -450,16 +449,14 @@ section.slider .wrapper {
     height: 100%;
     opacity: 1;
     background-color: #E0DFE5;
-    transition: all 0.25s ease;
-    -webkit-transition: all 0.25s ease;
-    -o-transition: all 0.25s ease;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
 }
 
 .slider.motif:before {
     opacity: 0;
-    transform: scale(0);
-    -webkit-transform: scale(0);
-    -o-transform: scale(0);
+
 }
 
 footer {
@@ -598,13 +595,13 @@ section h2 {
     margin-bottom: 20px;
 }
 
-.addthis {
+.addthis_toolbox {
     margin: 15px auto 0;
     width: 80px;
     height: 30px;
 }
 
-.addthis .addthis_button_facebook {
+.addthis_button_facebook {
     height: 30px;
     display: block;
     float: left;
@@ -614,7 +611,7 @@ section h2 {
     vertical-align: middle;
 }
 
-.addthis .addthis_button_twitter {
+.addthis_button_twitter {
     height: 30px;
     display: block;
     float: left;
@@ -735,9 +732,9 @@ section h2 {
 }
 
 .styled-select.small2 {
-    width:51px;
+    width:55px;
     background-position:  90% center;
-    margin-right: 24px
+    margin-right: 20px
 }
 
 .styled-select.small2 select {
@@ -853,6 +850,11 @@ section h2 {
 .flashMessage{display:none;}
 
 @media only screen and (max-width : 1000px) {
+
+
+    body{
+        overflow: auto
+    }
     .pagination {
         position: absolute;
         left: 0;
@@ -1093,10 +1095,6 @@ section h2 {
         padding: 15px 0 0 0;
     }
 
-    .popin form .row {
-        padding-bottom: 10px;
-    }
-
     .popin form label {
         float: none;
         width: 120px;
@@ -1111,18 +1109,28 @@ section h2 {
     }
 
     .popin form select {
-        width: 88%;
+        width: 130%;
         padding: 4px 5px 4px 10px;
         font-size: 12px;
     }
 
+    .styled-select.small2 select,
+    .styled-select.small4 select{
+        width:150%;
+    
+    }
+
+    .styled-select.small2{
+        margin-right: 4%
+    }
+
     .popin .small2 {
-        width: 20%;
+        width: 25%;
         background-position: 95% center;
     }
 
     .popin .small4 {
-        width: 35%;
+        width: 42%;
         background-position: 95% center;
     }
 
@@ -1134,7 +1142,7 @@ section h2 {
     .popin .optin label {
         float: left;
         width: 85%;
-        font-size: 12px;
+        font-size: 14px;
     }
     .styled-select{width:100%;font-size: 12px;}
     .closePopin {
@@ -1162,6 +1170,6 @@ section h2 {
     .arrow-left,.arrow-right {
         display:none;
     }
-    .door{display:none;}
+    .door,.door-left,.door-right{display:none;}
     .invitationForm .intro{display:none;}
 }

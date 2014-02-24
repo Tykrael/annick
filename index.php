@@ -1,7 +1,12 @@
 <?php
 require_once("lib/functions.php");
-if(!empty($_POST))
+
+
+if(!empty($_POST)) {
     $success = saveAllDataToBase($_POST);
+    //$_POST['sub'] = false;
+    
+}
 
 // /findCountry(); 
 $countries = getAllCountries();
@@ -9,26 +14,41 @@ $countries = getAllCountries();
     if (isset($success)) {
     
         if ($success == 1) {
+
             $messageSuccess = "Thank you. Your subscription has been registered";
             $flashMessageClass = "flashMessage";
+            $_POST = NULL;
         }
         elseif ($success == 2) {
+
             $messageSuccess = "Field(s) limited to 38 characters";
             $flashMessageClass = "errorMessage";
         }
         elseif ($success == 3) {
+
             $messageSuccess = "Invalid e-mail format";
             $flashMessageClass = "errorMessage";
+             
         }
         elseif ($success == 4) {
+
             $messageSuccess = "All fields are mandatory";
             $flashMessageClass = "errorMessage";
-        }            
-        else 
-            $messageSuccess="";
+             
+        }
+        elseif ($success == 5) {
+
+            $messageSuccess = "The date is mandatory";
+            $flashMessageClass = "errorMessage";
+             
+        }                
+        else {
+
+            $messageSuccess = ""; 
+        }
+            
     }
 ?>
-
 <!doctype html>
 <!--[if IE 7]>         <html class="no-js ie7 lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js ie8 lt-ie10 lt-ie9 "> <![endif]-->
@@ -38,9 +58,11 @@ $countries = getAllCountries();
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Annick Goutal</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-   
+        <meta name="description" content="description">
+        <meta property="og:title" content="ANNICK GOUTAL - NEW YORK" />
+        <meta property="og:description" content="The Annick Goutal perfumery house will open the doors of its first New York store, in the heart of Greenwich Village."  />
+
+        
         <!-- build:css(.tmp) css/main.css -->
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/main.css">
@@ -118,7 +140,7 @@ $countries = getAllCountries();
                             <img src="./img/map-illus.jpg" alt="map" class="fleft" />
                             <div class="adrWrapper fleft">
                                 <div class="adr">
-                                    <span class="street-address">397 Bleecker Street</span><br />
+                                    <span class="street-address">397 Bleeker Street</span><br />
                                     <span>Greenwich Village</span><br />
                                     <span class="locality">New York</span>
                                 </div>
@@ -139,14 +161,12 @@ $countries = getAllCountries();
                     <section class="share cf">
                         <h2>Share with your friend</h2>
                         <p>
-                            Invite your friends to join us !<br />
+                            Invite your friends to join !<br />
                             Share this page with them.
                         </p>
-                        <div class="addthis">
+                   
                             <!-- AddThis Button BEGIN -->
-                            <div class="addthis_toolbox" addthis:url="http://example.com"
-        addthis:title="ANNICK GOUTAL NEW OPENING IN NEW-YORK"
-        addthis:description="An Example Description">
+                            <div class="addthis_toolbox" >
                                 <a class="addthis_button_facebook">
                                     <img src="img/share-facebook.png" alt="share facebook" />
                                 </a>
@@ -156,8 +176,6 @@ $countries = getAllCountries();
                             </div>
                             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529756457e62e52a"></script>
                             <!-- AddThis Button END -->
-
-                        </div>
                     </section>
                 </div>
             </div>
@@ -165,7 +183,7 @@ $countries = getAllCountries();
         <footer>
             <div class="wrapper">
                 <div class="row">
-                    Copyright Annick Goutal 2014 - <a href="#" class="legalsLink">Legal Terms</a>
+                    Copyright Annick Goutal 2014 - <a href="#" class="legalsLink">legal disclaimer</a>
                 </div>
             </div>
         </footer>
@@ -181,10 +199,9 @@ $countries = getAllCountries();
                             FOR THE <span>GRAND OPENING EVENT!</span>
                         </h2>
                         <p>
-                            <span class="intro">
                             A surprising journey in a modern, feminine setting…<br />
                             More than a store, it is a place unlike any other 
-                            where nearly all senses collide to bring a true experience.<br /></span>
+                            where nearly all senses collide to bring a true experience.<br />
                             Sign up and have a chance to win your personal invitation 
                             to the opening reception.
                         </p>
@@ -192,10 +209,11 @@ $countries = getAllCountries();
                     <div class="<?php echo $flashMessageClass; ?>">
                         <?php 
                             if (isset($messageSuccess))
-                                echo $messageSuccess; 
+                                echo $messageSuccess;
                         ?>
                     </div>
-                    <form action="/" method="post">
+                    <form action="index2.php" method="post">
+                        <?php  $_POST['sub'] = true; ?>
                         <div class="row cf">               
                             <label>Title * :</label>
                             <div class="styled-select">
@@ -223,12 +241,26 @@ $countries = getAllCountries();
                             <div class="styled-select small2 fleft">
                                 <select name="month-birth">
                                     <?php 
+                                    echo '<option value="" >MM</option>';
                                     for($i = 1; $i <= 12; $i++) {
+
                                         if(isset($_POST['month-birth']) && $_POST['month-birth'] == $i)
                                             $selected = "selected='selected'";
-                                        else 
-                                            $selected = "";
-                                        echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
+                                        else {
+                                           
+                                             $selected = "";
+                                        }
+
+                                        if ($i < 10) {
+                                               
+                                            $month = (int)'0'.$i;
+                                        }
+                                        else {
+
+                                            $month = $i;
+                                        }
+                                        echo '<option value="'.$month.'" '.$selected.'>'.$month.'</option>';
+                                           
                                     }
                                     ?>
                                 </select>
@@ -236,12 +268,29 @@ $countries = getAllCountries();
                             <div class="styled-select small2 fleft">
                                 <select name="day-birth">
                                     <?php 
+                                    echo '<option value="" >DD</option>';
                                     for($i = 1; $i <= 31; $i++) {
-                                        if(isset($_POST['day-birth']) && $_POST['day-birth'] == $i)
+
+                                        if(isset($_POST['day-birth']) && $_POST['day-birth'] == $i){
+
                                             $selected = "selected='selected'";
-                                        else 
+                                        }
+                                        else {
+
                                             $selected = "";
-                                        echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
+                                            //echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
+                                        }
+
+                                        if ($i < 10) {
+                                               
+                                            $day = (int)'0'.$i;
+                                        }
+                                        else {
+
+                                            $day = $i;
+                                        }
+                                        echo '<option value="'.$day.'" '.$selected.'>'.$day.'</option>';
+                                            
                                     }
                                     ?>
                                 </select>
@@ -250,7 +299,15 @@ $countries = getAllCountries();
                             <div class="styled-select small4 fleft">
                                 <select  name="year-birth">
                                     <?php 
-                                    for($i = 1900; $i <= 2014; $i++) {
+                                    echo '<option value="" >YYYY</option>';
+                                    // for($i = 1900; $i <= 2014; $i++) {
+                                    //     if(isset($_POST['year-birth']) && $_POST['year-birth'] == $i)
+                                    //         $selected = "selected='selected'";
+                                    //     else 
+                                    //         $selected = "";
+                                    //     echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
+                                    // }
+                                    for ($i = 2014; $i >= 1900; $i--) {
                                         if(isset($_POST['year-birth']) && $_POST['year-birth'] == $i)
                                             $selected = "selected='selected'";
                                         else 
@@ -268,12 +325,10 @@ $countries = getAllCountries();
                                     <select name="country">
                                         <?php 
                                             $selected = null;
-                                            $s = 0;
                                             foreach ($countries as $key => $country) {
-                                                if(isset($_POST['country']) && $_POST['country'] == $country->id_country){
+                                                if(isset($_POST['country']) && $_POST['country'] == $key)
                                                     $selected = "selected='selected'";
-                                                    $s++;
-                                                }else if ($key == 223 && $s == 0) 
+                                                else if ($key == 223) 
                                                     $selected = 'selected="selected"';
                                                 else
                                                     $selected = "";
@@ -531,7 +586,8 @@ $countries = getAllCountries();
 
         <div class="door">
             <div class="door-left"></div>
-            <div class="door-right"></div>
+             <div class="door-right"></div>
+
         </div>
         <script src="js/jquery-1.11.0.min.js"></script>
      
