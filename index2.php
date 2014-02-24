@@ -1,4 +1,54 @@
+<?php
+require_once("lib/functions.php");
 
+
+if(!empty($_POST)) {
+    $success = saveAllDataToBase($_POST);
+    //$_POST['sub'] = false;
+    
+}
+
+// /findCountry(); 
+$countries = getAllCountries();
+
+    if (isset($success)) {
+    
+        if ($success == 1) {
+
+            $messageSuccess = "Thank you. Your subscription has been registered";
+            $flashMessageClass = "flashMessage";
+            $_POST = NULL;
+        }
+        elseif ($success == 2) {
+
+            $messageSuccess = "Field(s) limited to 38 characters";
+            $flashMessageClass = "errorMessage";
+        }
+        elseif ($success == 3) {
+
+            $messageSuccess = "Invalid e-mail format";
+            $flashMessageClass = "errorMessage";
+             
+        }
+        elseif ($success == 4) {
+
+            $messageSuccess = "All fields are mandatory";
+            $flashMessageClass = "errorMessage";
+             
+        }
+        elseif ($success == 5) {
+
+            $messageSuccess = "The date is mandatory";
+            $flashMessageClass = "errorMessage";
+             
+        }                
+        else {
+
+            $messageSuccess = ""; 
+        }
+            
+    }
+?>
 <!doctype html>
 <!--[if IE 7]>         <html class="no-js ie7 lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js ie8 lt-ie10 lt-ie9 "> <![endif]-->
