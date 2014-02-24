@@ -573,11 +573,17 @@ $countries = getAllCountries();
             </div>
         </div>
 
-        <div class="<?php echo $flashMessageClass; ?> success">
-            <?php 
-                if (isset($messageSuccess))
-                    echo $messageSuccess; 
-            ?>
+        <div class="<?php echo $flashMessageClass; ?> popin">
+            <div class="mask"></div>
+            <div class="popinWrapper">
+                <div class="content">
+                    <?php 
+                        if (isset($messageSuccess))
+                            echo $messageSuccess; 
+                    ?>
+                </div>
+                <div class="closePopin">Close</div>
+            </div>
         </div>
 
 
