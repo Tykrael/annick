@@ -5,8 +5,8 @@
 	// script d'exportation des utilisateur de la base au format CSV
 	
 	//$bdd = new PDO('mysql:host=localhost;dbname=annick_goutal','root','root');
-	try{
-		    $bdd = new PDO('mysql:host=nvd-sql-01.sadm.ig-1.net;dbname=annickgoutal','annickgoutal','ceil9iethohB',array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+	try{	
+			$bdd = new PDO('mysql:host=nvd-sql-01.sadm.ig-1.net;dbname=annickgoutal','annickgoutal','ceil9iethohB',array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 		    $bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
 		    $bdd->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 		    
@@ -18,7 +18,6 @@
 							WHERE c.id_country = cl.fk_country");
 	
 	$donnees = $result->fetchAll();
-	
 	
 	foreach ($donnees as $key => $dataContent) {
 		/*
@@ -41,19 +40,19 @@
 		$arrayToExport [$key]['email'] = $dataContent->email;
 		$arrayToExport [$key]['fk_country'] = $dataContent->libelle;
 		$arrayToExport [$key]['news'] = $dataContent->letter;
-
-				
+		$arrayToExport [$key]['date_creation'] = $dataContent->date_creation;
 	}
 	
 	$chaine = null;
-	$chaine .= "ident;title;first name;last name;date birth;city;email;newsletter;country\n";
+	$chaine .= "ident;title;first name;last name;date birth;city;email;newsletter;country;date creation\n";
+	
 	foreach ($arrayToExport as $item) {
 
 			$news = "subscribed";
 			if ($item['news'] == NULL || $item['news'] != 1)
 			$news = "Uncommitted";
 
-    		$chaine .= $item['id'].";".$item['titre'].";".$item['first_name'].";".$item['last_name'].";".$item['date_birth'].";".$item['city'].";".$item['email'].";".$news.";".$item['fk_country']."\n";
+    		$chaine .= $item['id'].";".$item['titre'].";".$item['first_name'].";".$item['last_name'].";".$item['date_birth'].";".$item['city'].";".$item['email'].";".$news.";".$item['fk_country'].";".$item['date_creation']."\n";
     	}
     	
     	header("Content-disposition: attachment; filename=adherent.csv");

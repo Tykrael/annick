@@ -8,17 +8,17 @@
 function connexion() {
 		
 		try{
-		    $DB = new PDO('mysql:host=nvd-sql-01.sadm.ig-1.net;dbname=annickgoutal','annickgoutal','ceil9iethohB',array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-		    $DB->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
-		    $DB->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
+
+			$bdd = new PDO('mysql:host=nvd-sql-01.sadm.ig-1.net;dbname=annickgoutal','annickgoutal','ceil9iethohB',array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+		    $bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
+		    $bdd->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 		    
 		}catch(PDOException $e){
 		    echo "Connexion Impossible à la BDD";
 		}
 		 
-		return $DB;
+		return $bdd;
 }
-
 
 function getDataFromBase() {
 	
@@ -28,24 +28,31 @@ function getDataFromBase() {
 
 function saveAllDataToBase($post) {
 
-	//var_dump(strlen($post['fname']));die;
 	if (isset($post['fname'])){
+
 		// Verification du nombre de caracteres dans les champs du formulaire.
 		$nbCharOk = TRUE;
 		$nbCharOk = controlNbChar($post);
 		$fieldsIsEmpty = checkEmptyField($post);
-		//var_dump($fieldsIsEmpty);die;
-		
+		// protege les mails de la casse.
+		$post['mail'] = strtolower ($post['mail']);
+
 		if ($fieldsIsEmpty == TRUE) {
-			return 4;//header("Location: http://www.annickgoutal.us/index2.php?success=4");die;
+
+			return 4; 
 		}
 		
 		if ($nbCharOk == FALSE) {
 			
-			return 2;//header("Location: http://www.annickgoutal.us/index2.php?success=2");die;
+			return 2; 
 		}
 		else if (checkMailFormat($post['mail']) == FALSE) {
-			return 3;//header("Location: http://www.annickgoutal.us/index2.php?success=3");die;
+
+			return 3;
+		}
+		else if ("" == $post['day-birth'] || "" == $post['month-birth'] || "" == $post['year-birth']) {
+
+			return 5;
 		}
 	}
 	
@@ -59,13 +66,16 @@ function saveAllDataToBase($post) {
 	$bdd = connexion();
 	
 	$date = setDateFormat($post);
+
+	$dateCreation = date("d-m-Y");
+
 	$idCo = (int)$post['country'];
 	 
 	/*$datetime = new DateTime;
 	$datetime = $datetime->format( 'Y-m-d H:i:s');*/
 	 
-	$reponse  = $bdd->prepare('INSERT INTO client (titre,first_name,last_name,date_birth, city, email,fk_country, letter)
-								VALUES(:title,:fname,:lname,:date_birth,:city,:email,:fk_country,:letter)');
+	$reponse  = $bdd->prepare('INSERT INTO client (titre,first_name,last_name,date_birth, city, email,fk_country, letter, date_creation)
+								VALUES(:title,:fname,:lname,:date_birth,:city,:email,:fk_country,:letter, :date_creation)');
 								
 	//$reponse  = $bdd->prepare('INSERT INTO client (titre,first_name,last_name,date_birth, city, email,fk_country, letter)
 	//							VALUES(:title,:fname,:lname,:date_birth,:city,:email, :letter)');
@@ -77,36 +87,32 @@ function saveAllDataToBase($post) {
 	$reponse->bindValue(':city', $post['city'] ,PDO::PARAM_STR);
 	$reponse->bindValue(':email', $post['mail'] ,PDO::PARAM_STR);
 	$reponse->bindValue(':fk_country', $idCo, PDO::PARAM_INT);
+	$reponse->bindValue(':date_creation', $dateCreation ,PDO::PARAM_STR);
 	//$reponse->bindValue(':fk_country', 2); // la!
 	$reponse->bindValue(':letter', $news);
 	
 	$reponse->execute() or die(print_r($reponse->errorInfo(), TRUE));
     
 	return 1;
-
 	//return $post;
-
-
     //header("Location: http://www.annickgoutal.us/index2.php?success=1");die;
-	
 }
 
-
-// return date in string format
 function setDateFormat($post) {
 	
-	//$dateToStringUs = "".$post['month-birth']."/".$post['day-birth']."/".$post['year-birth'];
-	$dateToStringFr = "".$post['day-birth']."/".$post['month-birth']."/".$post['year-birth'];
+	$dateToStringFr = "".$post['day-birth']."-".$post['month-birth']."-".$post['year-birth'];
+
+	// if ("DD" == $post['day-birth'] || "MM" == $post['month-birth'] || "YYYY" == $post['year-birth']) {
+
+	// 	return 5;
+	// }
 	
 	return trim($dateToStringFr);
 }
 
-
 // tester la fonction.
 function getAllCountries() {
 	
-
-	//$bdd = new PDO('mysql:host=http://nvd-sql-01.sadm.ig-1.net/;dbname=annickgoutal','annickgoutal','ceil9iethohB');
 	try{
 		$bdd = new PDO('mysql:host=nvd-sql-01.sadm.ig-1.net;dbname=annickgoutal','annickgoutal','ceil9iethohB',array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 		$bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
@@ -141,7 +147,6 @@ function controlNbChar($post) {
 	return TRUE;
 }
 
-
 function checkEmptyField($post) {
 	
 	if (strlen($post['fname']) == 0)
@@ -158,16 +163,11 @@ function checkEmptyField($post) {
 
 // Vérifie le format de l'email saisie dans le formulaire.
 function checkMailFormat($mail) {
-	
-	
-	
-	
+
 	// regex pour les mails aux format aa@a.aa
 	/* $regex = "/^[a-zØ-9._-]{2,}@[a-zØ-9._-]+$/"; */
 	$regex = "/^[a-z0-9._-]{2,}@[a-z0-9._-]+.[a-z]{2,}$/";
-
 	$mail = trim($mail);
-	
 	//$return = preg_match($regex, $mail, $results);
 	$return = preg_match($regex, $mail);
 	
@@ -176,5 +176,3 @@ function checkMailFormat($mail) {
 	else
 		return FALSE;
 }
-
-
