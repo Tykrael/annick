@@ -1,54 +1,3 @@
-<?php
-require_once("lib/functions.php");
-
-
-if(!empty($_POST)) {
-    $success = saveAllDataToBase($_POST);
-    //$_POST['sub'] = false;
-    
-}
-
-// /findCountry(); 
-$countries = getAllCountries();
-
-    if (isset($success)) {
-    
-        if ($success == 1) {
-
-            $messageSuccess = "Thank you. Your subscription has been registered";
-            $flashMessageClass = "flashMessage";
-            $_POST = NULL;
-        }
-        elseif ($success == 2) {
-
-            $messageSuccess = "Field(s) limited to 38 characters";
-            $flashMessageClass = "errorMessage";
-        }
-        elseif ($success == 3) {
-
-            $messageSuccess = "Invalid e-mail format";
-            $flashMessageClass = "errorMessage";
-             
-        }
-        elseif ($success == 4) {
-
-            $messageSuccess = "All fields are mandatory";
-            $flashMessageClass = "errorMessage";
-             
-        }
-        elseif ($success == 5) {
-
-            $messageSuccess = "The date is mandatory";
-            $flashMessageClass = "errorMessage";
-             
-        }                
-        else {
-
-            $messageSuccess = ""; 
-        }
-            
-    }
-?>
 
 <!doctype html>
 <!--[if IE 7]>         <html class="no-js ie7 lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
@@ -59,12 +8,14 @@ $countries = getAllCountries();
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Annick Goutal</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-   
+        <meta name="description" content="description">
+        <meta property="og:title" content="ANNICK GOUTAL - NEW YORK title" />
+        <meta property="og:description" content="ANNICK GOUTAL - NEW YORK description"  />
+
+        
         <!-- build:css(.tmp) css/main.css -->
         <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/main-dev.css">
         <!-- endbuild -->
 
         <script src="js/modernizr/modernizr-2.6.2.min.js"></script>
@@ -163,11 +114,9 @@ $countries = getAllCountries();
                             Invite your friends to join !<br />
                             Share this page with them.
                         </p>
-                        <div class="addthis">
+                   
                             <!-- AddThis Button BEGIN -->
-                            <div class="addthis_toolbox" addthis:url="http://example.com"
-        addthis:title="ANNICK GOUTAL NEW OPENING IN NEW-YORK"
-        addthis:description="An Example Description">
+                            <div class="addthis_toolbox" >
                                 <a class="addthis_button_facebook">
                                     <img src="img/share-facebook.png" alt="share facebook" />
                                 </a>
@@ -177,8 +126,6 @@ $countries = getAllCountries();
                             </div>
                             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529756457e62e52a"></script>
                             <!-- AddThis Button END -->
-
-                        </div>
                     </section>
                 </div>
             </div>
