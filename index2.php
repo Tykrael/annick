@@ -1,7 +1,12 @@
 <?php
 require_once("lib/functions.php");
-if(!empty($_POST))
+
+
+if(!empty($_POST)) {
     $success = saveAllDataToBase($_POST);
+    //$_POST['sub'] = false;
+    
+}
 
 // /findCountry(); 
 $countries = getAllCountries();
@@ -9,23 +14,39 @@ $countries = getAllCountries();
     if (isset($success)) {
     
         if ($success == 1) {
+
             $messageSuccess = "Thank you. Your subscription has been registered";
             $flashMessageClass = "flashMessage";
+            $_POST = NULL;
         }
         elseif ($success == 2) {
+
             $messageSuccess = "Field(s) limited to 38 characters";
             $flashMessageClass = "errorMessage";
         }
         elseif ($success == 3) {
+
             $messageSuccess = "Invalid e-mail format";
             $flashMessageClass = "errorMessage";
+             
         }
         elseif ($success == 4) {
+
             $messageSuccess = "All fields are mandatory";
             $flashMessageClass = "errorMessage";
-        }            
-        else 
-            $messageSuccess="";
+             
+        }
+        elseif ($success == 5) {
+
+            $messageSuccess = "The date is mandatory";
+            $flashMessageClass = "errorMessage";
+             
+        }                
+        else {
+
+            $messageSuccess = ""; 
+        }
+            
     }
 ?>
 
@@ -191,10 +212,11 @@ $countries = getAllCountries();
                     <div class="<?php echo $flashMessageClass; ?>">
                         <?php 
                             if (isset($messageSuccess))
-                                echo $messageSuccess; 
+                                echo $messageSuccess;
                         ?>
                     </div>
-                    <form action="/index2.php" method="post">
+                    <form action="index2.php" method="post">
+                        <?php  $_POST['sub'] = true; ?>
                         <div class="row cf">               
                             <label>Title * :</label>
                             <div class="styled-select">
@@ -222,12 +244,26 @@ $countries = getAllCountries();
                             <div class="styled-select small2 fleft">
                                 <select name="month-birth">
                                     <?php 
+                                    echo '<option value="" >MM</option>';
                                     for($i = 1; $i <= 12; $i++) {
+
                                         if(isset($_POST['month-birth']) && $_POST['month-birth'] == $i)
                                             $selected = "selected='selected'";
-                                        else 
-                                            $selected = "";
-                                        echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
+                                        else {
+                                           
+                                             $selected = "";
+                                        }
+
+                                        if ($i < 10) {
+                                               
+                                            $month = (int)'0'.$i;
+                                        }
+                                        else {
+
+                                            $month = $i;
+                                        }
+                                        echo '<option value="'.$month.'" '.$selected.'>'.$month.'</option>';
+                                           
                                     }
                                     ?>
                                 </select>
@@ -235,12 +271,29 @@ $countries = getAllCountries();
                             <div class="styled-select small2 fleft">
                                 <select name="day-birth">
                                     <?php 
+                                    echo '<option value="" >DD</option>';
                                     for($i = 1; $i <= 31; $i++) {
-                                        if(isset($_POST['day-birth']) && $_POST['day-birth'] == $i)
+
+                                        if(isset($_POST['day-birth']) && $_POST['day-birth'] == $i){
+
                                             $selected = "selected='selected'";
-                                        else 
+                                        }
+                                        else {
+
                                             $selected = "";
-                                        echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
+                                            //echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
+                                        }
+
+                                        if ($i < 10) {
+                                               
+                                            $day = (int)'0'.$i;
+                                        }
+                                        else {
+
+                                            $day = $i;
+                                        }
+                                        echo '<option value="'.$day.'" '.$selected.'>'.$day.'</option>';
+                                            
                                     }
                                     ?>
                                 </select>
@@ -249,7 +302,15 @@ $countries = getAllCountries();
                             <div class="styled-select small4 fleft">
                                 <select  name="year-birth">
                                     <?php 
-                                    for($i = 1900; $i <= 2014; $i++) {
+                                    echo '<option value="" >YYYY</option>';
+                                    // for($i = 1900; $i <= 2014; $i++) {
+                                    //     if(isset($_POST['year-birth']) && $_POST['year-birth'] == $i)
+                                    //         $selected = "selected='selected'";
+                                    //     else 
+                                    //         $selected = "";
+                                    //     echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
+                                    // }
+                                    for ($i = 2014; $i >= 1900; $i--) {
                                         if(isset($_POST['year-birth']) && $_POST['year-birth'] == $i)
                                             $selected = "selected='selected'";
                                         else 
