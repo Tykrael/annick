@@ -183,7 +183,7 @@ $countries = getAllCountries();
         <footer>
             <div class="wrapper">
                 <div class="row">
-                    Copyright Annick Goutal 2014 - <a href="#" class="legalsLink">legal disclaimer</a>
+                    Copyright Annick Goutal 2014 - <a href="#" class="legalsLink">Legal Terms</a>
                 </div>
             </div>
         </footer>
