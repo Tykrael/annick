@@ -140,7 +140,7 @@ $countries = getAllCountries();
                             <img src="./img/map-illus.jpg" alt="map" class="fleft" />
                             <div class="adrWrapper fleft">
                                 <div class="adr">
-                                    <span class="street-address">397 Bleeker Street</span><br />
+                                    <span class="street-address">397 Bleecker Street</span><br />
                                     <span>Greenwich Village</span><br />
                                     <span class="locality">New York</span>
                                 </div>
@@ -161,7 +161,7 @@ $countries = getAllCountries();
                     <section class="share cf">
                         <h2>Share with your friend</h2>
                         <p>
-                            Invite your friends to join !<br />
+                            Invite your friends to join us !<br />
                             Share this page with them.
                         </p>
                    
