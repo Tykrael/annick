@@ -59,6 +59,7 @@ $countries = getAllCountries();
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Annick Goutal</title>
         <meta name="description" content="description">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
         <meta property="og:title" content="ANNICK GOUTAL - NEW YORK" />
         <meta property="og:description" content="The Annick Goutal perfumery house will open the doors of its first New York store, in the heart of Greenwich Village."  />
 
@@ -77,7 +78,7 @@ $countries = getAllCountries();
             <div class="wrapper">
                 <h1>Annick Goutal Paris</h1>
                 <h2>
-                    New opening in <span class="bold">New-York</span>
+                    New opening in <span class="bold medium">New-York</span>
                 
                 </h2>
                 <a href="http://www.annickgoutal.com/en/" class="institutional" target="_blank">Visit Annick Goutal website &gt;</a>
@@ -140,7 +141,7 @@ $countries = getAllCountries();
                             <img src="./img/map-illus.jpg" alt="map" class="fleft" />
                             <div class="adrWrapper fleft">
                                 <div class="adr">
-                                    <span class="street-address">397 Bleeker Street</span><br />
+                                    <span class="street-address">397 Bleecker Street</span><br />
                                     <span>Greenwich Village</span><br />
                                     <span class="locality">New York</span>
                                 </div>
@@ -161,7 +162,7 @@ $countries = getAllCountries();
                     <section class="share cf">
                         <h2>Share with your friend</h2>
                         <p>
-                            Invite your friends to join !<br />
+                            Invite your friends to join us !<br />
                             Share this page with them.
                         </p>
                    
@@ -183,7 +184,7 @@ $countries = getAllCountries();
         <footer>
             <div class="wrapper">
                 <div class="row">
-                    Copyright Annick Goutal 2014 - <a href="#" class="legalsLink">legal disclaimer</a>
+                    Copyright Annick Goutal 2014 - <a href="#" class="legalsLink">Legal Terms</a>
                 </div>
             </div>
         </footer>

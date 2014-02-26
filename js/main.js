@@ -37,7 +37,6 @@ window.onload = function(){
 }
 
 $(document).ready(function(){
-	console.log('flashMessage',$('.flashMessage').length)
 	if(!$('.invitationForm').find('.errorMessage').length && !$('.flashMessage').length ){
 		$(".door-right").on('animationend webkitAnimationEnd', function(e){
 				$('.door').hide();

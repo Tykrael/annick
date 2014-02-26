@@ -59,6 +59,7 @@ $countries = getAllCountries();
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Annick Goutal</title>
         <meta name="description" content="description">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
         <meta property="og:title" content="ANNICK GOUTAL - NEW YORK" />
         <meta property="og:description" content="The Annick Goutal perfumery house will open the doors of its first New York store, in the heart of Greenwich Village."  />
 
@@ -77,7 +78,7 @@ $countries = getAllCountries();
             <div class="wrapper">
                 <h1>Annick Goutal Paris</h1>
                 <h2>
-                    New opening in <span class="bold">New-York</span>
+                    New opening in <span class="bold medium">New-York</span>
                 
                 </h2>
                 <a href="http://www.annickgoutal.com/en/" class="institutional" target="_blank">Visit Annick Goutal website &gt;</a>
@@ -164,17 +165,29 @@ $countries = getAllCountries();
                             Invite your friends to join us !<br />
                             Share this page with them.
                         </p>
-                   
+
                             <!-- AddThis Button BEGIN -->
                             <div class="addthis_toolbox" >
                                 <a class="addthis_button_facebook">
                                     <img src="img/share-facebook.png" alt="share facebook" />
                                 </a>
-                                <a class="addthis_button_twitter">
+                                <a class="addthis_button_twitter"
+                                    addthis:url="http://annickgoutal.us"
+                                    >
                                     <img src="img/share-twitter.png" alt="share twitter" />
                                 </a>
                             </div>
-                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529756457e62e52a"></script>
+                            <script>
+                            var addthis_config = {
+                                data_track_addressbar:false
+                                };
+                            var addthis_share =  { 
+                                templates: {
+                                    twitter: 'Annick Goutal : New opening in New-York'
+                                }
+                            }
+                            </script>
+                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
                             <!-- AddThis Button END -->
                     </section>
                 </div>
@@ -199,9 +212,9 @@ $countries = getAllCountries();
                             FOR THE <span>GRAND OPENING EVENT!</span>
                         </h2>
                         <p>
-                            A surprising journey in a modern, feminine setting…<br />
+                            <span class="intro">A surprising journey in a modern, feminine setting…<br />
                             More than a store, it is a place unlike any other 
-                            where nearly all senses collide to bring a true experience.<br />
+                            where nearly all senses collide to bring a true experience.<br /></span>
                             Sign up and have a chance to win your personal invitation 
                             to the opening reception.
                         </p>
@@ -212,7 +225,7 @@ $countries = getAllCountries();
                                 echo $messageSuccess;
                         ?>
                     </div>
-                    <form action="index2.php" method="post">
+                    <form action="/" method="post">
                         <?php  $_POST['sub'] = true; ?>
                         <div class="row cf">               
                             <label>Title * :</label>

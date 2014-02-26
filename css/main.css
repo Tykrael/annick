@@ -514,7 +514,7 @@ footer .wrapper a {
 }
 
 .swiper-slide figcaption .text p {
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-size: 16px;
 }
 
@@ -549,7 +549,7 @@ section .wrapper .content {
 
 .map .adrWrapper {
     margin: 10px 0 0 10px;
-    font-weight: bold;
+    /*font-weight: bold;*/
     color: #6d6d76;
 }
 
@@ -572,7 +572,7 @@ section .wrapper .content {
 }
 
 .invitation p {
-    font-weight: bold;
+    /*font-weight: bold;*/
     color: #6d6d76;
 }
 
@@ -584,7 +584,7 @@ section .wrapper .content {
 }
 
 .share p {
-    font-weight: bold;
+    /*font-weight: bold;*/
     color: #6d6d76;
 }
 
