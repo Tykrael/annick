@@ -48,8 +48,9 @@ $(document).ready(function(){
 	}
 	if($('.flashMessage.popin').length){
 		$('.flashMessage.popin').show()
+		$('.flashMessage.popin .content').append('<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6012889650366&amp;value=0.01&amp;currency=EUR" /></noscript>');
 		setTimeout(function(){
-			$('.flashMessage.popin').remove();
+			$('.flashMessage.popin').hide();
 		},3000);
 	}
 	

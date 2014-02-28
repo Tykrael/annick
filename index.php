@@ -591,6 +591,7 @@ $countries = getAllCountries();
                         if (isset($messageSuccess))
                             echo $messageSuccess; 
                     ?>
+                    
                 </div>
                 <div class="closePopin">Close</div>
             </div>
@@ -603,10 +604,33 @@ $countries = getAllCountries();
 
         </div>
         <script src="js/jquery-1.11.0.min.js"></script>
-     
-        <!-- build:js({app,.tmp}) js/main.js -->
         <script src="js/libs.js"></script>
         <script src="js/main.js"></script>
-        <!-- endbuild -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         
+          ga('create', 'UA-48516177-1', 'annickgoutal.us');
+          ga('send', 'pageview');
+        </script>
+            <!-- Facebook Conversion Code for Formulaire -->
+
+        <script type="text/javascript">
+            var fb_param = {};
+            fb_param.pixel_id = '6012889650366';
+            fb_param.value = '0.01';
+            fb_param.currency = 'EUR';
+            (function(){
+                var fpw = document.createElement('script');
+                fpw.async = true;
+                fpw.src = '//connect.facebook.net/en_US/fp.js';
+                var ref = document.getElementsByTagName('script')[0];
+                ref.parentNode.insertBefore(fpw, ref);
+            })();
+
+        </script>
+
 </body>
 </html>
