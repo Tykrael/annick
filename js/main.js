@@ -53,9 +53,11 @@ $(document).ready(function(){
 			$('.flashMessage.popin').hide();
 		},3000);
 	}
-	
 
-
-
-
+	var uri = parseUri(document.URL);
+	if(uri.anchor == 'subscribe'){
+		$('.door').remove();
+		$('body').css('overflow','auto');
+		$('.invitationForm').show();
+	}
 })
