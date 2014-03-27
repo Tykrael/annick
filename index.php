@@ -78,7 +78,7 @@ $countries = getAllCountries();
             <div class="wrapper">
                 <h1>Annick Goutal Paris</h1>
                 <h2>
-                    New opening in <span class="bold medium">New-York</span>
+                    New opening in <span class="bold medium">New-York</span> APRIL 1<sup class="exp">st</sup>
                 
                 </h2>
                 <a href="http://www.annickgoutal.com/en/" class="institutional" target="_blank">Visit Annick Goutal website &gt;</a>
@@ -101,7 +101,7 @@ $countries = getAllCountries();
                                             An exceptional olfactive experience in a modern, 
                                             feminine setting…
                                         </p>
-                                        <a href="#" class="button">Get your invitation</a>
+                                        <!--<a href="#" class="button">Get your invitation</a>-->
                                     </div>
                                 </figcaption>
                             </figure>
@@ -119,7 +119,7 @@ $countries = getAllCountries();
                                             for its original and timeless creations, 
                                             and their unique olfactory signature.
                                         </p>
-                                        <a href="#" class="button">Get your invitation</a>
+                                        <!--<a href="#" class="button">Get your invitation</a>-->
                                     </div>
                                 </figcaption>
                             </figure>
@@ -143,20 +143,20 @@ $countries = getAllCountries();
                                 <div class="adr">
                                     <span class="street-address">397 Bleecker Street</span><br />
                                     <span>Greenwich Village</span><br />
-                                    <span class="locality">New York</span>
+                                    <span class="locality">New York</span>, <span>10014</span>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section class="invitation">
-                        <h2>Get your invitation <br />for the grand opening</h2>
+                        <h2>Visit us<br /><br /></h2>
                         <figure><img src="./img/papillon.jpg" alt="papillon" /></figure>
                         <p>
                             A surprising journey in a modern, feminine setting…<br />
                             More than a store, it is a place unlike any other where 
                             nearly all senses collide to bring a true experience.
                         </p>
-                        <a href="#" class="button">Get your invitation</a>
+                        <!--<a href="#" class="button">Get your invitation</a>-->
 
                     </section>
                     <section class="share cf">
